@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import Menu from "./components/Menu/Menu";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.appContainer}>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="enter your task here"
+        />
+        <Button title="add task" />
+      </View>
+      <View>
+        <Text>tasks list...</Text>
+      </View>
+      <Menu />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  appContainer: {
+    padding: 50,
+  },
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    width: "80%",
   },
 });
