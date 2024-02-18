@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { StyleSheet, Text } from "react-native";
 
 import { COLORS } from "../../constants/theme";
-const CustomRegularText: FC<{ children: string; style?: any }> = ({
+const CustomRegularText: FC<{ children: ReactNode; style?: any }> = ({
   children,
   style,
 }) => {

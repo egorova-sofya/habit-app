@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { StyleSheet, Text } from "react-native";
 
 import { COLORS } from "../../constants/theme";
 
-const CustomBoldText: FC<{ children: string; style?: any }> = ({
+const CustomBoldText: FC<{ children: ReactNode; style?: any }> = ({
   children,
   style,
 }) => {
