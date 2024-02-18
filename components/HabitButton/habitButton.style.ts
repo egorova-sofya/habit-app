@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.darkBlue,
   },
   text: {
+    fontFamily: "Lato_400Regular",
     textAlign: "center",
     fontSize: 12,
   },

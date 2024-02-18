@@ -1,22 +1,28 @@
 import { View, Text, Pressable } from "react-native";
 import styles from "./menu.style";
-import Stats from "./../../assets/images/stats.svg";
-import Home from "./../../assets/images/home.svg";
-import Settings from "./../../assets/images/settings.svg";
+import { Ionicons } from "@expo/vector-icons";
 
 import { COLORS } from "../../constants/theme";
+import { FC } from "react";
 
-const Menu = () => {
+interface Props {
+  setShowModal: (value: boolean) => void;
+}
+
+const Menu: FC<Props> = ({ setShowModal }) => {
   return (
     <View style={styles.container}>
       <Pressable style={[styles.menuButton, styles.menuSideButton]}>
-        <Stats fill={COLORS.white} height={26} width={26} />
+        <Ionicons name="stats-chart" size={26} color={COLORS.white} />
       </Pressable>
-      <Pressable style={[styles.menuButton, styles.active]}>
-        <Home fill={COLORS.white} height={26} width={26} />
+      <Pressable
+        onPress={() => setShowModal(true)}
+        style={[styles.menuButton, styles.active]}
+      >
+        <Ionicons name="home" size={26} color={COLORS.white} />
       </Pressable>
       <Pressable style={[styles.menuButton, styles.menuSideButton]}>
-        <Settings fill={COLORS.white} height={26} width={26} />
+        <Ionicons name="settings" size={26} color={COLORS.white} />
       </Pressable>
     </View>
   );

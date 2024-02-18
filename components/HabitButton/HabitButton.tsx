@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./habitButton.style";
 import { Pressable, Text, View } from "react-native";
-import MusicalNotes from "./../../assets/images/musical-notes.svg";
+import { Ionicons } from "@expo/vector-icons";
 
 import { COLORS } from "../../constants/theme";
 
@@ -12,7 +12,7 @@ const HabitButton = () => {
       <View style={styles.buttonContainer}>
         <View style={[styles.buttonStand, active && styles.buttonStandActive]}>
           <View style={[styles.button, active && styles.buttonActive]}>
-            <MusicalNotes fill={COLORS.black} height={36} width={36} />
+            <Ionicons name="musical-notes" size={36} color={COLORS.black} />
           </View>
         </View>
       </View>
