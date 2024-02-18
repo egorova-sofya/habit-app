@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Menu from "./components/Menu/Menu";
 import HabitButton from "./components/HabitButton/HabitButton";
 import Morning from "./assets/images/morning.svg";
@@ -10,6 +10,7 @@ import { useCallback, useState } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
+import CustomRegularText from "./components/Text/CustomRegularText";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,7 +37,7 @@ export default function App() {
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
           <Morning width={26} height={26} fill={COLORS.black} />
-          <Text>Утро</Text>
+          <CustomRegularText>Утро</CustomRegularText>
         </View>
         {[1, 2, 3, 4, 5, 6, 7].map((item) => (
           <HabitButton key={item} />

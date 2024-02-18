@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styles from "./habitButton.style";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { COLORS } from "../../constants/theme";
+import CustomRegularText from "../Text/CustomRegularText";
 
 const HabitButton = () => {
   const [active, setActive] = useState(false);
@@ -16,9 +17,9 @@ const HabitButton = () => {
           </View>
         </View>
       </View>
-      <Text style={[active && styles.textActive, styles.text]}>
+      <CustomRegularText style={[active && styles.textActive, styles.text]}>
         Название задачи, которое может быть очень длинным
-      </Text>
+      </CustomRegularText>
     </Pressable>
   );
 };
