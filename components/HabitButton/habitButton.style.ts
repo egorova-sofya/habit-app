@@ -1,19 +1,22 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+import { COLORS, SIZES } from "../../constants/theme";
 
-import { COLORS } from "../../constants/theme";
+const width = Dimensions.get("screen").width;
+const buttonSize = width > SIZES.largeViewportWidth ? 52 : 40;
+const containerSize = width > SIZES.largeViewportWidth ? 120 : 100;
 
 const styles = StyleSheet.create({
   container: {
-    width: 112,
+    width: containerSize,
     alignItems: "center",
   },
   buttonContainer: {
     marginBottom: 4,
   },
   button: {
-    width: 52,
-    height: 52,
-    borderRadius: 52 / 2,
+    width: buttonSize,
+    height: buttonSize,
+    borderRadius: buttonSize / 2,
     justifyContent: "center",
     backgroundColor: COLORS.gray2,
     alignItems: "center",
@@ -24,8 +27,8 @@ const styles = StyleSheet.create({
   },
   buttonStand: {
     paddingBottom: 5,
-    width: 52,
-    borderRadius: 52 / 2,
+    width: buttonSize,
+    borderRadius: buttonSize / 2,
     backgroundColor: COLORS.gray4,
   },
   buttonStandActive: {

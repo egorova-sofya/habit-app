@@ -28,6 +28,10 @@ const COLORS = {
 
 const SIZES = {
   mdTitle: 18,
+  horizontalIndent: 16,
+  largeViewportWidth: 768,
+  mediumViewportWidth: 480,
+  smallViewportWidth: 320,
 };
 
 const SHADOWS = {
