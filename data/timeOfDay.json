@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Утро",
+    "value": "morning",
+    "time": "8:00"
+  },
+  {
+    "title": "День",
+    "value": "day",
+    "time": "13:00"
+  },
+  {
+    "title": "Вечер",
+    "value": "evening",
+    "time": "19:00"
+  }
+]

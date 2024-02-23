@@ -22,12 +22,13 @@ const COLORS = {
 
   gray: "#EBEDEB",
   gray2: "#E0E4E0",
-  gray3: "#CFD2CF",
+  gray3: "#CDCDCD",
   gray4: "#C9C9C9",
 };
 
 const SIZES = {
   mdTitle: 18,
+  titleBottomIndent: 16,
   horizontalIndent: 16,
   largeViewportWidth: 768,
   mediumViewportWidth: 480,
