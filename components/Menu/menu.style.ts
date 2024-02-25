@@ -2,6 +2,14 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "../../constants/theme";
 
 const styles = StyleSheet.create({
+  outsideContainer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -9,18 +17,12 @@ const styles = StyleSheet.create({
     padding: 14,
     backgroundColor: COLORS.black,
     borderRadius: 70,
-    width: "100%",
-    position: "absolute",
-    bottom: 16,
+    width: "90%",
   },
   menuButton: {
     paddingVertical: 8,
-    paddingHorizontal: 56,
   },
-  menuSideButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 22,
-  },
+
   active: {
     backgroundColor: COLORS.green,
     borderRadius: 40,

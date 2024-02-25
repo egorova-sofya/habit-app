@@ -1,4 +1,7 @@
-import { NavigationProp } from "@react-navigation/native";
+import {
+  NavigationProp,
+  NavigatorScreenParams,
+} from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
 export enum ITimeOfDayEnum {
@@ -51,12 +54,17 @@ export interface IHabit {
   progress: number;
 }
 
-export type RootStackParamList = {
+export type BottomTabParamList = {
   Home: undefined;
   Settings: undefined;
-  NotificationsSettings: undefined;
   Statistics: undefined;
+};
+
+export type RootStackParamList = {
+  BottomTabNavigator: NavigatorScreenParams<BottomTabParamList>;
+  NotificationsSettings: undefined;
   CompletedHabit: undefined | { habitId: number };
+  Habit: undefined;
 };
 
 export type StackNavigation = NavigationProp<RootStackParamList>;

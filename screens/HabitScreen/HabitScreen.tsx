@@ -1,20 +1,16 @@
 import React, { FC, useLayoutEffect } from "react";
 import HabitForm from "../../components/HabitForm/HabitForm";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
-import { IHabit, RootStackParamList } from "../../types";
-import habits from "./../../data/habits.json";
+import { RootStackParamList } from "../../types";
 import { Pressable } from "react-native";
 import { COLORS } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 
 interface Props {
-  route: RouteProp<RootStackParamList, "CompletedHabit">;
-  navigation: NavigationProp<RootStackParamList, "CompletedHabit">;
+  route: RouteProp<RootStackParamList, "Habit">;
+  navigation: NavigationProp<RootStackParamList, "Habit">;
 }
-const CompletedHabitScreen: FC<Props> = ({ route, navigation }) => {
-  const id = route.params?.habitId;
-  const habit = habits.find((item) => item.id === id);
-
+const HabitScreen: FC<Props> = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -30,13 +26,14 @@ const CompletedHabitScreen: FC<Props> = ({ route, navigation }) => {
       headerTitle: "",
       headerLeft: () => "",
       headerShadowVisible: false,
+
       contentStyle: {
         backgroundColor: COLORS.white,
       },
     });
   }, []);
 
-  return <HabitForm onSave={() => {}} savedHabit={habit as IHabit} />;
+  return <HabitForm onSave={() => {}} />;
 };
 
-export default CompletedHabitScreen;
+export default HabitScreen;
