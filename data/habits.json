@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "title": "Вставать в 7 утра",
+    "time": ["morning"],
+    "day": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+    "icon": "time",
+    "color": "#F4D66E",
+    "progress": 0
+  },
+  {
+    "id": 2,
+    "title": "Читать 5 страниц в день",
+    "time": ["evening"],
+    "day": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday"
+    ],
+    "icon": "book",
+    "color": "#8FF28E",
+    "progress": 0
+  },
+  {
+    "id": 3,
+    "title": "Принимать витамин D",
+    "time": ["day", "evening"],
+    "day": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+      "sunday"
+    ],
+    "icon": "heart-circle",
+    "color": "#F57473",
+    "progress": 0
+  }
+]
