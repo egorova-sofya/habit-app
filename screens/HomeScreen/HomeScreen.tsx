@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Modal, View } from "react-native";
+import { Modal, View, Text } from "react-native";
 import styles from "./homeScreen.style";
 import Morning from "./../../assets/images/morning.svg";
 import CustomRegularText from "../../components/Text/CustomRegularText";
@@ -9,7 +9,9 @@ import HabitForm from "../../components/HabitForm/HabitForm";
 import { COLORS } from "../../constants/theme";
 import { NavigationProp } from "@react-navigation/native";
 import { IHabit, RootStackParamList } from "../../types";
-import habits from "./../../data/habits.json";
+// import habits from "./../../data/habits.json";
+import { useSelector } from "react-redux";
+import { getHabitSlice } from "../../app/store/habitSlice";
 
 interface Props {
   navigation: NavigationProp<RootStackParamList>;
@@ -17,6 +19,14 @@ interface Props {
 
 const HomeScreen: FC<Props> = ({ navigation }) => {
   const [showModal, setShowModal] = useState(false);
+  const habits = useSelector(getHabitSlice).habits;
+
+  if (!habits)
+    return (
+      <View>
+        <Text>Привычки пока не созданы</Text>
+      </View>
+    );
 
   return (
     <View style={styles.appContainer}>

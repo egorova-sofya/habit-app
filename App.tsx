@@ -13,6 +13,8 @@ import CompletedHabitScreen from "./screens/CompletedHabitScreen/CompletedHabitS
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Menu from "./components/Menu/Menu";
 import HabitScreen from "./screens/HabitScreen/HabitScreen";
+import { Provider } from "react-redux";
+import { store } from "./app/store/store";
 
 // SplashScreen.preventAutoHideAsync();
 
@@ -52,36 +54,38 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      {/* <SafeAreaView onLayout={onLayoutRootView}> */}
-      <Stack.Navigator
-        screenOptions={{
-          headerShadowVisible: false,
-          headerTitle: "",
-        }}
-      >
-        <Stack.Screen
-          name="BottomTabNavigator"
-          component={BottomTabNavigator}
-          options={{ headerShown: false }}
-        />
+    <Provider store={store}>
+      <NavigationContainer>
+        {/* <SafeAreaView onLayout={onLayoutRootView}> */}
+        <Stack.Navigator
+          screenOptions={{
+            headerShadowVisible: false,
+            headerTitle: "",
+          }}
+        >
+          <Stack.Screen
+            name="BottomTabNavigator"
+            component={BottomTabNavigator}
+            options={{ headerShown: false }}
+          />
 
-        <Stack.Screen
-          name="NotificationsSettings"
-          component={NotificationsSettingsScreen}
-        />
-        <Stack.Screen
-          name="CompletedHabit"
-          component={CompletedHabitScreen}
-          // dynamic options
-          // options={({ route, navigation }) => ({
-          // title: route.params?.habitId.toString()
-          // headerRight: () => <Text>test</Text>,
-          // })}
-        />
-        <Stack.Screen name="Habit" component={HabitScreen} />
-      </Stack.Navigator>
-      {/* </SafeAreaView> */}
-    </NavigationContainer>
+          <Stack.Screen
+            name="NotificationsSettings"
+            component={NotificationsSettingsScreen}
+          />
+          <Stack.Screen
+            name="CompletedHabit"
+            component={CompletedHabitScreen}
+            // dynamic options
+            // options={({ route, navigation }) => ({
+            // title: route.params?.habitId.toString()
+            // headerRight: () => <Text>test</Text>,
+            // })}
+          />
+          <Stack.Screen name="Habit" component={HabitScreen} />
+        </Stack.Navigator>
+        {/* </SafeAreaView> */}
+      </NavigationContainer>
+    </Provider>
   );
 }
