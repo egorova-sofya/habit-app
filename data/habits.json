@@ -23,7 +23,7 @@
     ],
     "icon": "book",
     "color": "#8FF28E",
-    "progress": 0
+    "progress": 20
   },
   {
     "id": 3,
@@ -40,6 +40,6 @@
     ],
     "icon": "heart-circle",
     "color": "#F57473",
-    "progress": 0
+    "progress": 50
   }
 ]

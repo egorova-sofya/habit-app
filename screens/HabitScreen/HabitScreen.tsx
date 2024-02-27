@@ -6,7 +6,7 @@ import { Pressable } from "react-native";
 import { COLORS } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
-import { updateHabits } from "../../app/store/habitSlice";
+import { addHabit } from "../../app/store/habitSlice";
 
 interface Props {
   route: RouteProp<RootStackParamList, "Habit">;
@@ -40,7 +40,7 @@ const HabitScreen: FC<Props> = ({ navigation }) => {
     <HabitForm
       onSave={() => {
         dispatch(
-          updateHabits({
+          addHabit({
             id: 1,
             title: "Вставать в 7 утра",
             time: ["morning"],

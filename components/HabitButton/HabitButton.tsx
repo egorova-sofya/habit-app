@@ -7,6 +7,7 @@ import { COLORS, SIZES } from "../../constants/theme";
 import CustomRegularText from "../Text/CustomRegularText";
 import { IHabit } from "../../types";
 import { changeColorShade } from "../../utils/changeColorShade";
+import ProgressCircle from "../ProgressCircle/ProgressCircle";
 
 const width = Dimensions.get("screen").width;
 
@@ -26,26 +27,36 @@ const HabitButton: FC<Props> = ({ habit, onPress }) => {
   return (
     <Pressable onPress={handlePress} style={styles.container}>
       <View style={styles.buttonContainer}>
-        <View
-          style={[
-            styles.buttonStand,
-            {
-              backgroundColor: active
-                ? `#${changeColorShade(habit.color, -30)}`
-                : COLORS.gray4,
-            },
-          ]}
+        <ProgressCircle
+          color={active ? habit.color : COLORS.gray3}
+          progress={habit.progress}
         >
           <View
             style={[
-              styles.button,
-              { backgroundColor: active ? habit.color : COLORS.gray2 },
+              styles.buttonStand,
+              {
+                backgroundColor: active
+                  ? `#${changeColorShade(habit.color, -30)}`
+                  : COLORS.gray4,
+              },
             ]}
           >
-            <Ionicons name={habit.icon} size={iconSize} color={COLORS.black} />
+            <View
+              style={[
+                styles.button,
+                { backgroundColor: active ? habit.color : COLORS.gray2 },
+              ]}
+            >
+              <Ionicons
+                name={habit.icon}
+                size={iconSize}
+                color={COLORS.black}
+              />
+            </View>
           </View>
-        </View>
+        </ProgressCircle>
       </View>
+
       <CustomRegularText style={[active && styles.textActive, styles.text]}>
         {habit.title}
       </CustomRegularText>
