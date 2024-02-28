@@ -18,6 +18,7 @@ export default Title;
 const styles = StyleSheet.create({
   title: {
     fontSize: 18,
+    lineHeight: 24,
     fontFamily: "Lato_400Regular",
     color: COLORS.black,
     textAlign: "center",

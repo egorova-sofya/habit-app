@@ -1,8 +1,13 @@
 import React from "react";
 import Statistics from "../../components/Statistics/Statistics";
+import MainLayout from "../../components/Layouts/MainLayout";
 
 const StatisticsScreen = () => {
-  return <Statistics />;
+  return (
+    <MainLayout>
+      <Statistics />
+    </MainLayout>
+  );
 };
 
 export default StatisticsScreen;

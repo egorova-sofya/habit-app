@@ -3,9 +3,10 @@ import HabitForm from "../../components/HabitForm/HabitForm";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { IHabit, RootStackParamList } from "../../types";
 import habits from "./../../data/habits.json";
-import { Pressable } from "react-native";
+import { Pressable, View } from "react-native";
 import { COLORS } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+import MainLayout from "../../components/Layouts/MainLayout";
 
 interface Props {
   route: RouteProp<RootStackParamList, "CompletedHabit">;
@@ -36,7 +37,11 @@ const CompletedHabitScreen: FC<Props> = ({ route, navigation }) => {
     });
   }, []);
 
-  return <HabitForm onSave={() => {}} savedHabit={habit as IHabit} />;
+  return (
+    <MainLayout>
+      <HabitForm onSave={() => {}} savedHabit={habit as IHabit} />
+    </MainLayout>
+  );
 };
 
 export default CompletedHabitScreen;

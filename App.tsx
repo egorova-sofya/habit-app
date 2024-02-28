@@ -15,6 +15,7 @@ import Menu from "./components/Menu/Menu";
 import HabitScreen from "./screens/HabitScreen/HabitScreen";
 import { Provider } from "react-redux";
 import { store } from "./app/store/store";
+import { View } from "react-native";
 
 // SplashScreen.preventAutoHideAsync();
 
@@ -76,6 +77,7 @@ export default function App() {
           <Stack.Screen
             name="CompletedHabit"
             component={CompletedHabitScreen}
+
             // dynamic options
             // options={({ route, navigation }) => ({
             // title: route.params?.habitId.toString()

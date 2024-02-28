@@ -12,6 +12,7 @@ import { IHabit, RootStackParamList } from "../../types";
 // import habits from "./../../data/habits.json";
 import { useSelector } from "react-redux";
 import { getHabitSlice } from "../../app/store/habitSlice";
+import MainLayout from "../../components/Layouts/MainLayout";
 
 interface Props {
   navigation: NavigationProp<RootStackParamList>;
@@ -29,21 +30,23 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
     );
 
   return (
-    <View style={styles.appContainer}>
+    <MainLayout>
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Morning width={26} height={26} fill={COLORS.black} />
-          <CustomRegularText>Утро</CustomRegularText>
+        <View style={styles.habitsCard}>
+          <View style={styles.titleWrapper}>
+            <Morning width={26} height={26} fill={COLORS.black} />
+            <CustomRegularText>Утро</CustomRegularText>
+          </View>
+          {habits.map((item) => (
+            <HabitButton key={item.id} habit={item as IHabit} />
+          ))}
         </View>
-        {habits.map((item) => (
-          <HabitButton key={item.id} habit={item as IHabit} />
-        ))}
-      </View>
 
-      <Modal visible={showModal} animationType="slide">
-        <HabitForm onSave={() => setShowModal(false)} />
-      </Modal>
-    </View>
+        <Modal visible={showModal} animationType="slide">
+          <HabitForm onSave={() => setShowModal(false)} />
+        </Modal>
+      </View>
+    </MainLayout>
   );
 };
 

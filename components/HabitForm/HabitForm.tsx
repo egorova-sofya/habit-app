@@ -20,7 +20,7 @@ const HabitForm: FC<Props> = ({ onSave, savedHabit }) => {
 
   return (
     <>
-      <ScrollView style={styles.container}>
+      <ScrollView>
         <View style={styles.inputWrapper}>
           <Title>Что хотим сделать привычкой?</Title>
           <TextInput style={styles.input} value={savedHabit?.title} />

@@ -7,6 +7,7 @@ import { COLORS } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 import { addHabit } from "../../app/store/habitSlice";
+import MainLayout from "../../components/Layouts/MainLayout";
 
 interface Props {
   route: RouteProp<RootStackParamList, "Habit">;
@@ -37,21 +38,23 @@ const HabitScreen: FC<Props> = ({ navigation }) => {
   }, []);
 
   return (
-    <HabitForm
-      onSave={() => {
-        dispatch(
-          addHabit({
-            id: 1,
-            title: "Вставать в 7 утра",
-            time: ["morning"],
-            day: ["monday", "tuesday", "wednesday", "thursday", "friday"],
-            icon: "time",
-            color: "#F4D66E",
-            progress: 0,
-          })
-        );
-      }}
-    />
+    <MainLayout>
+      <HabitForm
+        onSave={() => {
+          dispatch(
+            addHabit({
+              id: 1,
+              title: "Вставать в 7 утра",
+              time: ["morning"],
+              day: ["monday", "tuesday", "wednesday", "thursday", "friday"],
+              icon: "time",
+              color: "#F4D66E",
+              progress: 0,
+            })
+          );
+        }}
+      />
+    </MainLayout>
   );
 };
 
