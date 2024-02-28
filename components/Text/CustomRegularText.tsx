@@ -12,6 +12,7 @@ const CustomRegularText: FC<{ children: ReactNode; style?: any }> = ({
 const styles = StyleSheet.create({
   text: {
     fontFamily: "Lato_400Regular",
+    lineHeight: 18,
     color: COLORS.black,
   },
 });

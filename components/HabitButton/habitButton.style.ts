@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_400Regular",
     textAlign: "center",
     fontSize: 12,
+    lineHeight: 18,
   },
   textActive: {
     textDecorationLine: "line-through",

@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   text: {
     textTransform: "uppercase",
     fontSize: 12,
+    lineHeight: 18,
   },
 });
 
