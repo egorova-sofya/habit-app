@@ -12,25 +12,32 @@ const TimeOfDayButton: FC<Props> = ({ title, time, value }) => {
   const [checked, setChecked] = useState(false);
 
   const buttonColor = checked ? COLORS.black : COLORS.gray3;
+  const contentColor = checked ? COLORS.white : COLORS.gray3;
   return (
     <Pressable
       onPress={() => setChecked(!checked)}
-      style={[styles.button, { borderColor: buttonColor }]}
+      style={[
+        styles.button,
+        {
+          borderColor: buttonColor,
+          backgroundColor: checked ? COLORS.black : COLORS.white,
+        },
+      ]}
     >
       {value === "morning" ? (
-        <MorningIcon width={19} height={19} fill={buttonColor} />
+        <MorningIcon width={19} height={19} fill={contentColor} />
       ) : null}
       {value === "day" ? (
-        <Ionicons name="sunny" size={19} color={buttonColor} />
+        <Ionicons name="sunny" size={19} color={contentColor} />
       ) : null}
       {value === "evening" ? (
-        <Ionicons name="moon" size={19} color={buttonColor} />
+        <Ionicons name="moon" size={19} color={contentColor} />
       ) : null}
 
       <Text
         style={[
           styles.text,
-          { color: buttonColor, fontWeight: checked ? "700" : "400" },
+          { color: contentColor, fontWeight: checked ? "700" : "400" },
         ]}
       >{`${title} (${time})`}</Text>
     </Pressable>
