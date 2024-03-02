@@ -44,13 +44,16 @@ export interface IColor {
   value: string;
 }
 
-export interface IHabit {
-  id: number;
+export interface IHabitFormData {
   title: string;
   time: Array<ITimeOfDayEnumOfKeys>;
   day: Array<IDayOfWeekEnumOfKeys>;
   icon: keyof typeof Ionicons.glyphMap;
   color: string;
+}
+
+export interface IHabit extends IHabitFormData {
+  id: number;
   progress: number;
 }
 

@@ -9,18 +9,7 @@ const styles = StyleSheet.create({
     gap: SIZES.titleBottomIndent,
     marginBottom: 40,
   },
-  input: {
-    borderColor: COLORS.black,
-    borderWidth: 2,
-    borderRadius: 90,
-    fontSize: 12,
-    lineHeight: 18,
 
-    color: COLORS.black,
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    width: "100%",
-  },
   timeWrapper: {
     flexDirection: "row",
     flexWrap: "wrap",

@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Modal, TextInput, View, Text, ScrollView } from "react-native";
+import { Modal, View, Text, ScrollView } from "react-native";
 import styles from "./habitForm.style";
 import Title from "../Title/Title";
 import timesOfDay from "../../data/timeOfDay.json";
@@ -9,21 +9,51 @@ import DayOfWeekPicker from "../DayOfWeekPicker/DayOfWeekPicker";
 import IconPickerButton from "../IconPickerButton/IconPickerButton";
 import ColorPicker from "../ColorPicker/ColorPicker";
 import Button from "../Button/Button";
+import { SubmitHandler, useForm } from "react-hook-form";
+import Input from "../Input/Input";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface Props {
   onSave: () => void;
   savedHabit?: IHabit;
 }
 
+const schema = yup
+  .object({
+    title: yup.string().max(50).required("Обязательное поле"),
+    time: yup.string().required("Укажите время"),
+    day: yup.string().required("Укажите день"),
+    icon: yup.string().required("Выберите иконку"),
+    color: yup.string(),
+  })
+  .required();
+
+export type FormData = yup.InferType<typeof schema>;
+
 const HabitForm: FC<Props> = ({ onSave, savedHabit }) => {
   const [showIconsModal, setShowIconsModal] = useState(false);
+  const { control, register, handleSubmit } = useForm<FormData>({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      title: "test",
+    },
+  });
+
+  const onSaveFn: SubmitHandler<FormData> = (data) => {
+    console.log("🐶", data);
+    onSave();
+  };
 
   return (
     <>
       <ScrollView>
         <View style={styles.inputWrapper}>
-          <Title>Что хотим сделать привычкой?</Title>
-          <TextInput style={styles.input} value={savedHabit?.title} />
+          <Input
+            label="Что хотим сделать привычкой?"
+            control={control}
+            name="title"
+          />
         </View>
         <View style={styles.inputWrapper}>
           <Title>Когда слать напоминания?</Title>
@@ -46,7 +76,7 @@ const HabitForm: FC<Props> = ({ onSave, savedHabit }) => {
           <ColorPicker />
         </View>
         <View style={styles.saveButtonWrapper}>
-          <Button onPress={onSave}>Сохранить</Button>
+          <Button onPress={handleSubmit(onSaveFn)}>Сохранить</Button>
         </View>
       </ScrollView>
       <Modal visible={showIconsModal} animationType="slide">
